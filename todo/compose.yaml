@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   backend:
     build: ./backend
     depends_on:
@@ -11,6 +12,7 @@ services:
       - "9229:9229"
     volumes:
       - ./backend:/usr/src/app:rw
+
   db:
     image: postgres:latest
     restart: always
@@ -18,10 +20,12 @@ services:
     ports:
       - "5432:5432"
     environment:
+      POSTGRES_DB: mydb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     volumes:
       - pgdata:/var/lib/postgresql/data
+
   react:
     build:
       context: ./frontend
