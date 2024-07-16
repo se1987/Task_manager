@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-uqna@#doyh8ze9f)4-p=kopr1x8!i0e+wmk6v$jh-5)1t4j5q2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+# ここの追記でサーバ起動成功
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1'] 
 
 
 # Application definition
