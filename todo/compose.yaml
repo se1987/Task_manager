@@ -10,6 +10,8 @@ services:
     ports:
       - 8000:8000
       - "9229:9229"
+    environment:
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
     volumes:
       - ./backend:/usr/src/app:rw
 

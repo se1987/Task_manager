@@ -29,3 +29,11 @@ class User(models.Model):
     
     def __str__(self):
         return f"user_id: {self.user_id}, name: {self.name}, email: {self.email}"
+    
+# class AnotherModel(models.Model):
+#     # 新しいモデルの定義
+#     field1 = models.CharField(max_length=50)
+#     field2 = models.IntegerField()
+
+#     def __str__(self):
+#         return f"field1: {self.field1}, field2: {self.field2}"
