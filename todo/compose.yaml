@@ -9,7 +9,17 @@ services:
       - "9229:9229"
     volumes:
       - ./backend:/usr/src/app:rw
-
+  db:
+    image: postgres:latest
+    restart: always
+    platform: linux/x86_64
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   react:
     build:
       context: ./frontend
@@ -22,3 +32,6 @@ services:
       - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
     command: npm run dev
+
+volumes:
+  pgdata:
