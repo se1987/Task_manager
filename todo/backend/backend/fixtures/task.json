@@ -1,0 +1,41 @@
+[
+    {
+        "model": "backend.task",
+        "fields": {
+            "user_id": "67423273-42cf-4be2-aa41-86564118ed7b",
+            "task": "Task 1",
+            "category": "frontend",
+            "status": "not started",
+            "deadline": "2024-07-18",
+            "memo": "ブリンバンバン",
+            "created_at": "2024-07-17T10:00:00Z",
+            "updated_at": "2024-07-17T10:00:00Z"
+        }
+    },
+    {
+        "model": "backend.task",
+        "fields": {
+            "user_id": "7f823e8f-9070-4222-be5c-c73f3802b6cb",
+            "task": "Task 2",
+            "category": "Documents",
+            "status": "Done",
+            "deadline": "2024-07-19",
+            "memo": "オワタ",
+            "created_at": "2024-07-17T10:00:00Z",
+            "updated_at": "2024-07-17T10:00:00Z"
+        }
+    },
+    {
+        "model": "backend.task",
+        "fields": {
+            "user_id": "9ec6ecb0-b8ef-4290-97c7-1eea0e1f5c33",
+            "task": "Task 3",
+            "category": "docker",
+            "status": "In progress",
+            "deadline": "2024-07-20",
+            "memo": "樹海",
+            "created_at": "2024-07-17T10:00:00Z",
+            "updated_at": "2024-07-17T10:00:00Z"
+        }
+    }
+]

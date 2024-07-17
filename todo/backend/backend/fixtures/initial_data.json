@@ -1,0 +1,26 @@
+[
+    {
+        "model": "backend.user",
+        "fields": {
+            "name": "sayoko",
+            "email": "asayoko@example.com",
+            "password": "sayoko"
+        }
+    },
+    {
+        "model": "backend.user",
+        "fields": {
+            "name": "ami",
+            "email": "ami@example.com",
+            "password": "ami"
+        }
+    },
+    {
+        "model": "backend.user",
+        "fields": {
+            "name": "meme",
+            "email": "meme@example.com",
+            "password": "meme"
+        }
+    }
+]
