@@ -1,6 +1,5 @@
 import React from 'react';
 import TaskColumn from './TaskColumn';
-import '../src/app/styles.css';
 
 type Task = {
   task_id: number;
