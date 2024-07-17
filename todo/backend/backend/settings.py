@@ -32,15 +32,20 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'backend',
+    'backend.task',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3003',  # Next.jsの起動URL
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -76,8 +85,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb',          # 同じデータベース名を指定
+        'USER': 'postgres',      # 同じユーザー名を指定
+        'PASSWORD': 'password',  # 同じパスワードを指定
+        'HOST': 'db',            # Docker Composeのサービス名をホストとして指定
+        'PORT': '5432',          # デフォルトのPostgreSQLポート
     }
 }
 
