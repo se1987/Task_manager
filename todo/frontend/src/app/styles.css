@@ -39,3 +39,12 @@
 .task-item button {
   margin-left: 5px;
 }
+
+input, textarea, select {
+  display: block;
+  margin: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}

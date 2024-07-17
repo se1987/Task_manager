@@ -1,10 +1,15 @@
 import React from 'react';
 import TaskColumn from './TaskColumn';
+import '../src/app/styles.css';
 
 type Task = {
-  id: number;
-  title: string;
+  task_id: number;
+  user_name: string;
+  task_name: string;
+  category: string;
   status: string;
+  deadline: string;
+  memo: string;
 };
 
 type TaskBoardProps = {
@@ -14,20 +19,22 @@ type TaskBoardProps = {
 };
 
 const TaskBoard: React.FC<TaskBoardProps> = ({ tasks, onMove, onDelete }) => {
-  const statuses = ['not started', 'in progress', 'done'];
+  const statuses = [
+    { status: 'not started', title: 'Not Started' },
+    { status: 'in progress', title: 'In Progress' },
+    { status: 'done', title: 'Done' },
+  ];
 
   return (
     <div className="task-board">
-      {statuses.map(status => (
-        <div key={status} className={`task-column-wrapper ${status.replace(' ', '-')}`}>
-          <TaskColumn
-            key={status}
-            title={status}
-            tasks={tasks.filter(task => task.status === status)}
-            onMove={onMove}
-            onDelete={onDelete}
-          />
-        </div>
+      {statuses.map(({ status, title }) => (
+        <TaskColumn
+          key={status}
+          title={title}
+          tasks={tasks.filter(task => task.status === status)}
+          onMove={onMove}
+          onDelete={onDelete}
+        />
       ))}
     </div>
   );

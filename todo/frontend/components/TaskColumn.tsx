@@ -1,10 +1,14 @@
 import React from 'react';
-import TaskItem from './TaskItem';
+import '../src/app/styles.css';
 
 type Task = {
-  id: number;
-  title: string;
+  task_id: number;
+  user_name: string;
+  task_name: string;
+  category: string;
   status: string;
+  deadline: string;
+  memo: string;
 };
 
 type TaskColumnProps = {
@@ -19,7 +23,18 @@ const TaskColumn: React.FC<TaskColumnProps> = ({ title, tasks, onMove, onDelete 
     <div className="task-column">
       <h2>{title}</h2>
       {tasks.map(task => (
-        <TaskItem key={task.id} {...task} onMove={onMove} onDelete={onDelete} />
+        <div key={task.task_id} className="task-card">
+          <div><strong>Task:</strong> {task.task_name}</div>
+          <div><strong>Category:</strong> {task.category}</div>
+          <div><strong>User:</strong> {task.user_name}</div>
+          <div><strong>Deadline:</strong> {task.deadline}</div>
+          <div>
+            <button onClick={() => onMove(task.task_id, 'not started')}>Not Started</button>
+            <button onClick={() => onMove(task.task_id, 'in progress')}>In Progress</button>
+            <button onClick={() => onMove(task.task_id, 'done')}>Done</button>
+            <button onClick={() => onDelete(task.task_id)}>Delete</button>
+          </div>
+        </div>
       ))}
     </div>
   );
