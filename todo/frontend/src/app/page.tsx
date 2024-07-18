@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
 
   // タスクのステータスを更新する関数
   const moveTask = (id: number, newStatus: string) => {
-    fetch(`http://localhost:8000/task/${id}`, {
+    fetch(`http://localhost:8000/task/${id}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const HomePage: React.FC = () => {
 
   // タスクを削除する関数
   const deleteTask = (id: number) => {
-    fetch(`http://localhost:8000/task/${id}`, {
+    fetch(`http://localhost:8000/task/${id}/`, {
       method: 'DELETE',
     })
       .then(response => {
