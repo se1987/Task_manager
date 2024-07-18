@@ -4,16 +4,6 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import '../styles.css';
 
-type Task = {
-  task_id: number;
-  user_name: string;
-  task_name: string;
-  category: string;
-  status: string;
-  deadline: string;
-  memo: string;
-};
-
 const AddTaskForm: React.FC = () => {
   const [newTask, setNewTask] = useState({
     user_name: '',
@@ -26,6 +16,7 @@ const AddTaskForm: React.FC = () => {
 
   const router = useRouter();
 
+  //新しいタスクを追加する関数
   const handleAddTask = () => {
     if (newTask.task_name.trim()) {
       const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');

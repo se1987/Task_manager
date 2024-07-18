@@ -1,15 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import TaskColumn from './TaskColumn';
-
-type Task = {
-  task_id: number;
-  user_name: string;
-  task_name: string;
-  category: string;
-  status: string;
-  deadline: string;
-  memo: string;
-};
+import { Task } from '../src/types/task';
 
 type TaskBoardProps = {
   tasks: Task[];

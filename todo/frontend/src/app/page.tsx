@@ -3,17 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import TaskBoard from '../../components/TaskBoard';
+import { Task } from '../types/task';
 import './styles.css';
-
-type Task = {
-  task_id: number;
-  user_name: string;
-  task_name: string;
-  category: string;
-  status: string;
-  deadline: string;
-  memo: string;
-};
 
 const HomePage: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -87,7 +78,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <h1>Task Manager</h1>
+      <h1>TeamB: タスク管理</h1>
       <button onClick={() => router.push('/add-task')}>Add Task</button>
       <TaskBoard tasks={tasks} onMove={moveTask} onDelete={deleteTask} />
     </div>

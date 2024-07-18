@@ -1,14 +1,5 @@
 import React from 'react';
-
-type Task = {
-  task_id: number;
-  user_name: string;
-  task_name: string;
-  category: string;
-  status: string;
-  deadline: string;
-  memo: string;
-};
+import { Task } from '../src/types/task';
 
 type TaskColumnProps = {
   title: string;
