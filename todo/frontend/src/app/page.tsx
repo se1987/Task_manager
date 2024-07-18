@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import TaskBoard from "../../components/TaskBoard";
 import axios from "axios";
+import LogoutButton from "../../components/LogoutButton";
 import "./styles.css";
 
 type Task = {
@@ -79,7 +80,8 @@ const HomePage: React.FC = () => {
       <h1>Task Manager</h1>
       <button onClick={() => router.push("/add-task")}>Add Task</button>
       <TaskBoard tasks={tasks} onMove={moveTask} onDelete={deleteTask} />
-      <button onClick={handleLogout}>ログアウト</button>
+      <LogoutButton />
+      {/* <button onClick={handleLogout}>ログアウト</button> */}
     </div>
   );
 };

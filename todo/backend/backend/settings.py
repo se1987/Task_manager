@@ -60,6 +60,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3003',  # Next.jsの起動URL
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
