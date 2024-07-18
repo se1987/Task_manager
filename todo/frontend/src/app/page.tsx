@@ -59,43 +59,43 @@ const HomePage: React.FC = () => {
       });
   }, []);
 
-  //新しいタスクを追加する関数
-  const addTask = (newTask: Omit<Task, 'task_id'>) => {
-    // log
-    if (isDebugMode) {
-      console.log('新しいタスクを追加しています:', newTask);
-    }
+  //新しいタスクを追加する関数: add-taskに転記済みのためコメントアウト by meme
+  // const addTask = (newTask: Omit<Task, 'task_id'>) => {
+  //   // log
+  //   if (isDebugMode) {
+  //     console.log('新しいタスクを追加しています:', newTask);
+  //   }
 
-    fetch('http://localhost:8000/task', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newTask),
-    })
-    .then(response => {
-      // log
-      if (isDebugMode) {
-        console.log('タスク追加後のレスポンスを受信しました:', response);
-      }
-      // 処理
-      return response.json();
-    })
-    .then(data => {
-      // log
-      if (isDebugMode) {
-        console.log('追加されたタスク:', data);
-      }
-      // 処理
-      setTasks(prevTasks => [...prevTasks, data]);
-    })
-    .catch(error => {
-      // log
-      if (isDebugMode) {
-        console.error('タスクの追加中にエラーが発生しました:', error);
-      }
-    });
-  };
+  //   fetch('http://localhost:8000/task', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newTask),
+  //   })
+  //   .then(response => {
+  //     // log
+  //     if (isDebugMode) {
+  //       console.log('タスク追加後のレスポンスを受信しました:', response);
+  //     }
+  //     // 処理
+  //     return response.json();
+  //   })
+  //   .then(data => {
+  //     // log
+  //     if (isDebugMode) {
+  //       console.log('追加されたタスク:', data);
+  //     }
+  //     // 処理
+  //     setTasks(prevTasks => [...prevTasks, data]);
+  //   })
+  //   .catch(error => {
+  //     // log
+  //     if (isDebugMode) {
+  //       console.error('タスクの追加中にエラーが発生しました:', error);
+  //     }
+  //   });
+  // };
 
   //タスクのステータスを更新する関数
   const moveTask = (id: number, newStatus: string) => {
