@@ -133,7 +133,7 @@
     {
         task_id: number/int,
         user_id: uuid/string,
-        task_name: string,
+        task: string,
         category: string,
         status: string,
         deadline: Date,
@@ -144,7 +144,7 @@
     {
         task_id: number/int,
         user_id: uuid/string,
-        task_name: string,
+        task: string,
         category: string,
         status: string,
         deadline: Date,
@@ -165,7 +165,7 @@
 {
     task_id: number/int,
     user_id: uuid/string,
-    task_name: string,
+    task: string,
     category: string,
     status: string,
     deadline: Date,
@@ -180,7 +180,7 @@
 // request
 {
     user_id: uuid/string,
-    task_name: string,
+    task: string,
     category: string,
     status: string,
     deadline: Date,
@@ -194,7 +194,7 @@
     data: newTask: {
         task_id: number/int,
         user_id: uuid/string,
-        task_name: string,
+        task: string,
         category: string,
         status: string,
         deadline: Date,
@@ -212,7 +212,7 @@
 // params = task_id
 {
     user_id: uuid/string,
-    task_name: string,
+    task: string,
     category: string,
     status: string,
     deadline: Date,
@@ -226,7 +226,7 @@
     data: updatedTask: {
         task_id: number/int,
         user_id: uuid/string,
-        task_name: string,
+        task: string,
         category: string,
         status: string,
         deadline: Date,
