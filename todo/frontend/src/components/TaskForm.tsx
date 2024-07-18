@@ -1,39 +1,85 @@
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import { Task } from '../types/task';
 
-type TaskColumnProps = {
-  title: string;
-  tasks: Task[];
-  onMove: (id: number, newStatus: string) => void;
-  onDelete: (id: number) => void;
-  onViewDetail: (id: number) => void;
+type TaskFormProps = {
+  task?: Task; // taskはオプショナル
+  onSubmit: (task: Task) => void;
 };
 
-const TaskColumn: React.FC<TaskColumnProps> = ({ title, tasks, onMove, onDelete, onViewDetail }) => {
-  const handleMove = (id: number, newStatus: string) => {
-    onMove(id, newStatus);
+const TaskForm: React.FC<TaskFormProps> = ({ task = { task_id: 0, task_name: '', category: '', status: 'not started', deadline: '', memo: '' }, onSubmit }) => {
+  const [formTask, setFormTask] = useState<Task>(task);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormTask({ ...formTask, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = () => {
+    // task_nameが空文字またはundefinedでないことを確認
+    if (formTask.task_name && formTask.task_name.trim()) {
+      onSubmit(formTask);
+    } else {
+      alert('Task Name is required');
+    }
   };
 
   return (
-    <div className="task-column">
-      <h2>{title}</h2>
-      {tasks.map(task => (
-        <div key={task.task_id} className="task-card">
-          <div><strong>Task:</strong> {task.task_name}</div>
-          <div><strong>Category:</strong> {task.category}</div>
-          <div><strong>User:</strong> {task.user_id}</div>
-          <div><strong>Deadline:</strong> {task.deadline}</div>
-          <div>
-            <button onClick={() => handleMove(task.task_id, 'not started')}>Not Started</button>
-            <button onClick={() => handleMove(task.task_id, 'in progress')}>In Progress</button>
-            <button onClick={() => handleMove(task.task_id, 'done')}>Done</button>
-            <button onClick={() => onDelete(task.task_id)}>Delete</button>
-            <button onClick={() => onViewDetail(task.task_id)}>View Detail</button>
-          </div>
-        </div>
-      ))}
+    <div>
+      <h1>{formTask.task_id ? 'Edit Task' : 'Add Task'}</h1>
+      <div className="form-group">
+        <label>Task Name:</label>
+        <input
+          type="text"
+          name="task_name"
+          value={formTask.task_name || ''}
+          onChange={handleChange}
+          placeholder="Task Name"
+        />
+      </div>
+      <div className="form-group">
+        <label>Category:</label>
+        <input
+          type="text"
+          name="category"
+          value={formTask.category || ''}
+          onChange={handleChange}
+          placeholder="Category"
+        />
+      </div>
+      <div className="form-group">
+        <label>Status:</label>
+        <select
+          name="status"
+          value={formTask.status || 'not started'}
+          onChange={handleChange}
+        >
+          <option value="not started">Not Started</option>
+          <option value="in progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+      <div className="form-group">
+        <label>Deadline:</label>
+        <input
+          type="date"
+          name="deadline"
+          value={formTask.deadline || ''}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label>Memo:</label>
+        <textarea
+          name="memo"
+          value={formTask.memo || ''}
+          onChange={handleChange}
+          placeholder="Memo"
+        />
+      </div>
+      <button onClick={handleSubmit}>Save</button>
     </div>
   );
 };
 
-export default TaskColumn;
+export default TaskForm;
