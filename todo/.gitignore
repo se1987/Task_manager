@@ -1,6 +1,2 @@
 .env
-# Python
 backend/backend/__pycache__
-*.pyc
-*.pyo
-*.pyd
