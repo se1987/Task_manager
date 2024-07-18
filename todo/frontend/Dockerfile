@@ -11,7 +11,7 @@ COPY . .
 RUN npm install
 
 # 3000番ポートでリッスン
-EXPOSE 3000
+# EXPOSE 3000
 
 # React の起動
 CMD ["npm", "run", "dev"]
