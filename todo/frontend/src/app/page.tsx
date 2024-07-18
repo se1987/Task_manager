@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <h1>TeamB: タスク管理</h1>
+      <h1>TeamB: タスク管理dayone</h1>
       <button onClick={() => router.push('/add-task')}>Add Task</button>
       <TaskBoard tasks={tasks} onMove={moveTask} onDelete={deleteTask} />
     </div>
