@@ -13,8 +13,6 @@ const isDebugMode = process.env.NODE_ENV !== 'production';
 //   console.log('logging message');
 // }
 
-
-
 type Task = {
   task_id: number;
   user_name: string;

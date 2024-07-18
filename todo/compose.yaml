@@ -42,13 +42,11 @@ services:
     command: npm run dev
   
   playwright:
-    image: mcr.microsoft.com/playwright:bionic
-    depends_on:
-      - backend
-    environment:
-      - BACKEND_URL=http://backend:8000  # バックエンドのURLを環境変数として設定する
+    #image: mcr.microsoft.com/playwright:focal
+    build: ./e2e-test
     volumes:
-      - ./e2e-tests:/e2e-tests  # Playwrightのテストスクリプトをマウントする
-
+      - ./e2e-test:/e2e-test  # Playwrightのテストスクリプトをマウントする
+    depends_on:
+      - react
 volumes:
   pgdata:

@@ -1,7 +1,7 @@
 // e2e-tests/taskManager.spec.ts
 import { test, expect } from '@playwright/test';
 
-const baseURL = 'http://localhost:3003'; // フロントエンドのURLをここに設定する
+const baseURL = 'http://react:3003'; // フロントエンドのURLをここに設定する
 
 test('Task Manager E2E Tests', async ({ page }) => {
   // ページを開く
