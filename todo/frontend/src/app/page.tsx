@@ -5,6 +5,16 @@ import { useRouter } from 'next/navigation';
 import TaskBoard from '../../components/TaskBoard';
 import './styles.css';
 
+// 開発環境のみconsole.logを出力する設定。.envも要参照。
+const isDebugMode = process.env.NODE_ENV !== 'production';
+
+// ログを仕込みたい箇所には以下を記述
+// if (isDebugMode) {
+//   console.log('logging message');
+// }
+
+
+
 type Task = {
   task_id: number;
   user_name: string;
