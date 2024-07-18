@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Task } from '../src/types/task';
+import { Task } from '../types/task';
 
 interface TaskDetailProps {
   taskId: number;
