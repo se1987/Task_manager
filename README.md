@@ -1,2 +1,24 @@
-# Task Manager
-### TEAM B: sayoko, ami, meme
+# Task Manager for pre-engineer
+**TEAM B: sayoko, ami, meme**
+
+## 概要
+#### 実装済みの機能
+駆け出しエンジニア向けのタスク管理アプリケーションを最終目標として開発中です。
+現時点で実装できている機能は、タスクの登録、管理(ステータス変更)、更新、削除です。
+登録したタスクのステータスに応じて表示場所が変わるような設計を取り入れています（Not Started, In progress, done)。
+#### 実装予定の機能
+- プロジェクトごとにタスクを管理できる機能
+- プロジェクトのメンバーでタスクの管理を共有できる機能
+- スケジュールにタスクを埋め込める機能（日、週、月単位など)
+
+## 技術スタック
+#### フロントエンド
+> TypeScript, Next.js(AppRouter)
+#### バックエンド
+> Python, Django
+#### データベース
+> PostgreSQL
+#### テストフレームワーク
+> playwright
+#### 使用したプラットフォーム、サービス
+> Docker, GitHub
