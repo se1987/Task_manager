@@ -1,6 +1,8 @@
-// e2e-tests/playwright.config.js
-module.exports = {
-  testDir: './tests', //テストファイルの格納場所
+// e2e-test/playwright.config.ts
+import { PlaywrightTestConfig } from '@playwright/test';
+
+const config: PlaywrightTestConfig = {
+  testDir: './tests', 
   timeout: 30000,
   use: {
     baseURL: 'http://localhost:3003', 
@@ -9,8 +11,8 @@ module.exports = {
     ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
   },
-  // テストはまずはchromeのみでやってみる
   projects: [
+    // まずはchromeだけ
     {
       name: 'chromium',
       use: { ...require('playwright').devices['Desktop Chrome'] },
@@ -25,3 +27,5 @@ module.exports = {
     // },
   ],
 };
+
+export default config;
