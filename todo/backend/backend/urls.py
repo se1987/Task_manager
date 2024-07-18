@@ -26,5 +26,5 @@ urlpatterns = [
     path('user/', user_views.user_list, name='user-list'),
     path('user/<uuid:pk>/', user_views.user_detail, name='user-detail'),
     path('accounts/', include('accounts.urls')), #認証
-    path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    # path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
 ]
