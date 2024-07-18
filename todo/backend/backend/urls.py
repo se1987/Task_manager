@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from backend.task import views as task_views
 from backend.user import views as user_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('user/', user_views.user_list, name='user-list'),
     path('user/<uuid:pk>/', user_views.user_detail, name='user-detail'),
     path('accounts/', include('accounts.urls')), #認証
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
 ]
