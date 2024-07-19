@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import TaskBoard from '../../components/TaskBoard';
+import TaskBoard from '../components/TaskBoard';
+import { Task } from '../types/task';
 import './styles.css';
 
 // 開発環境のみconsole.logを出力する設定。.envも要参照。
@@ -27,7 +28,6 @@ const HomePage: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const router = useRouter();
 
-  //componentがmountされたときにDBからタスクを読み込む
   useEffect(() => {
     // log
     if (isDebugMode) {
@@ -163,9 +163,9 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <h1>Task Manager</h1>
+      <h1>TeamB: タスク管理dayone</h1>
       <button onClick={() => router.push('/add-task')}>Add Task</button>
-      <TaskBoard tasks={tasks} onMove={moveTask} onDelete={deleteTask} />
+      <TaskBoard tasks={tasks} onMove={moveTask} onDelete={deleteTask} onViewDetail={viewTaskDetail} />
     </div>
   );
 };

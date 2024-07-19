@@ -29,6 +29,7 @@ const AddTaskForm: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const router = useRouter();
 
+  //新しいタスクを追加する関数
   const handleAddTask = () => {
     //新しいタスクを追加する関数
     const addTask = (newTask: Omit<Task, 'task_id'>) => {
