@@ -31,13 +31,21 @@ const EditTaskPage: React.FC = () => {
 
   const handleUpdateTask = async (updatedTask: Task) => {
     try {
-      const response = await fetch(`http://localhost:8000/task/${id}`, {
+      const response = await fetch(`http://localhost:8000/task/${id}/`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedTask),
+        body: JSON.stringify({
+          user_id: updatedTask.user_id,
+          task: updatedTask.task_name,
+          category: updatedTask.category,
+          status: updatedTask.status,
+          deadline: updatedTask.deadline,
+          memo: updatedTask.memo,
+        }),
       });
       if (!response.ok) {
-        throw new Error(`サーバーエラー: ${response.statusText}`);
+        const errorText = await response.text();  // エラーメッセージを取得
+        throw new Error(`サーバーエラー: ${response.statusText} - ${errorText}`);
       }
       router.push(`/task/${id}`); // 編集後に詳細ページに戻る
     } catch (error) {

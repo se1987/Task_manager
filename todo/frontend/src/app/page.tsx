@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch('http://localhost:8000/task');
+        const response = await fetch('http://localhost:8000/task/');
         if (!response.ok) {
           throw new Error(`Server error: ${response.statusText}`);
         }
@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
 
   const addTask = async (newTask: Omit<Task, 'task_id'>) => {
     try {
-      const response = await fetch('http://localhost:8000/task', {
+      const response = await fetch('http://localhost:8000/task/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newTask),
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
 
   const moveTask = async (id: number, newStatus: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/task/${id}`, {
+      const response = await fetch(`http://localhost:8000/task/${id}/`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
 
   const deleteTask = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:8000/task/${id}`, {
+      const response = await fetch(`http://localhost:8000/task/${id}/`, {
         method: 'DELETE',
       });
       if (!response.ok) {
