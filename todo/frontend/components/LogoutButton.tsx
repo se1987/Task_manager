@@ -9,7 +9,7 @@ const LogoutButton: React.FC = () => {
       });
       if (response.ok) {
         // ログアウトが成功した場合、ホームページにリダイレクト
-        window.location.href = "/";
+        window.location.href = "http://localhost:8000/accounts/login/";
       } else {
         console.error("Logout failed");
       }
