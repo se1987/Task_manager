@@ -10,11 +10,5 @@ COPY . .
 # パッケージをインストール
 RUN npm install
 
-<<<<<<< HEAD
-=======
-# 3000番ポートでリッスン
-# EXPOSE 3000
-
->>>>>>> sayoko_3
 # React の起動
 CMD ["npm", "run", "dev"]
