@@ -135,6 +135,14 @@ const HomePage: React.FC = () => {
     });
   };
 
+  // タスクの詳細画面に遷移する関数
+  const viewTaskDetail = (id: number) => {
+    if (isDebugMode) {
+      console.log(`タスクの詳細画面に遷移します: タスクID: ${id}`);
+    }
+    router.push(`/task/${id}`);
+  };
+
   //タスクを削除する関数
   const deleteTask = (id: number) => {
     // log
