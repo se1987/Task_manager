@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-uqna@#doyh8ze9f)4-p=kopr1x8!i0e+wmk6v$jh-5)1t4j5q2
 DEBUG = True
 
 # ここの追記でサーバ起動成功
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1'] 
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backend',
     'backend.task',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3003',  # Next.jsの起動URL
 ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'backend.urls'
 
