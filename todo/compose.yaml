@@ -40,6 +40,13 @@ services:
       - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
     command: npm run dev
-
+  
+  playwright:
+    #image: mcr.microsoft.com/playwright:focal
+    build: ./e2e-test
+    volumes:
+      - ./e2e-test:/e2e-test  # Playwrightのテストスクリプトをマウントする
+    depends_on:
+      - react
 volumes:
   pgdata:
