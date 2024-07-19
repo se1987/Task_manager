@@ -41,9 +41,9 @@ const TaskDetailPage: React.FC = () => {
       <h1>Task Detail</h1>
       {task ? (
         <div>
-          <div><strong>Task:</strong> {task.task_name}</div>
+          <div><strong>Task:</strong> {task.task}</div>
           <div><strong>Category:</strong> {task.category}</div>
-          <div><strong>User:</strong> {task.user_name}</div>
+          <div><strong>User:</strong> {task.user_id}</div>
           <div><strong>Deadline:</strong> {task.deadline}</div>
           <div><strong>Memo:</strong> {task.memo}</div>
           <button onClick={handleEdit}>Edit Task</button>
