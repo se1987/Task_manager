@@ -113,6 +113,7 @@ const AddTaskForm: React.FC = () => {
         <label>Status:</label>
         <select
           value={newTask.status}
+          name="Status"
           onChange={e => setNewTask({ ...newTask, status: e.target.value })}
         >
           <option value="not started">Not Started</option>

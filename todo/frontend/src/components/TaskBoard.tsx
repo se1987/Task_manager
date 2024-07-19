@@ -10,9 +10,9 @@ interface TaskBoardProps {
 }
 
 const TaskBoard: React.FC<TaskBoardProps> = ({ tasks, onMove, onDelete, onViewDetail }) => {
-  const notStartedTasks = tasks.filter(task => task.status === 'not started');
-  const inProgressTasks = tasks.filter(task => task.status === 'in progress');
-  const doneTasks = tasks.filter(task => task.status === 'done');
+  const notStartedTasks = tasks.filter(task => task.status === 'Not Started');
+  const inProgressTasks = tasks.filter(task => task.status === 'In Progress');
+  const doneTasks = tasks.filter(task => task.status === 'Done');
 
   return (
     <div className="task-board">
